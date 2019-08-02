@@ -16,25 +16,25 @@ b.	Users should use GitHub pages to demonstrate the working Demo
 
 4.	Communicate with the Chrome web wallet (Waykimax) - Easy
 a.	All Dapp’s need to communicate with Waykimax web wallet
-i.	Chrome Web wallet - Waykimax https://chrome.google.com/webstore/detail/waykimax/odaegfdpkolgbdaeibcebmibmibchbce
+i.	Chrome Web wallet - Waykimax [waykimax](https://chrome.google.com/webstore/detail/waykimax/odaegfdpkolgbdaeibcebmibmibchbce)
 b.	Use JavaScript code to complete this – (WaykiBridge)
-i.	WaykiBridge
- https://wiccdev-webui.readthedocs.io/en/latest/DeveloperHelper/application_api/
+i.	WaykiBridge [waykibridge](https://wiccdev-webui.readthedocs.io/en/latest/DeveloperHelper/application_api/)
+ 
 
 Or
 
 c.	Communicate with smart contract via BaaS API – Advanced 
 i.	JavaScript Ajax calls to post to Baas API 
- https://wiccdev-webui.readthedocs.io/en/latest/DeveloperHelper/baas/
+ [BaaS](https://wiccdev-webui.readthedocs.io/en/latest/DeveloperHelper/baas/)
 
 
 
 
 Dapp Tutorial 
-https://medium.com/@ottokafka/waykichain-dapp-tutorial-bf29bb53dae5
+[Tutorial](https://medium.com/@ottokafka/waykichain-dapp-tutorial-bf29bb53dae5)
 
 Dapp Demo
-ottokafka.github.io/myquote
+[Demo](ottokafka.github.io/myquote)
 
 
 
