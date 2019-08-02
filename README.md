@@ -37,3 +37,30 @@ Dapp [Demo](ottokafka.github.io/myquote)
 
 
 
+
+
+## Waykichain Tutorial Outline - Saturday 8th
+  
+  
+ 1: Wallet
+  * Install chrome web Wallet (WaykiMax)
+  * Add Testnet Tokens to Wallet
+  * Activate chrome web wallet
+  
+ 2: Website
+  * Intro HTML
+  * Intro Javascript
+    * Javascript communicating with wallet
+    * Javascript using Baas and fetch api to pos
+    
+ 3: Smart Contract
+  * Online IDE (Waykimix)
+    * Intro to Lua
+  * Deploying a smart contract
+    * RegID
+    
+ 4: Blockchain use cases
+  * Education industry
+    * E-transcripts
+  * Gaming industry
+    * Weapon Assets
