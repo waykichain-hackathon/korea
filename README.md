@@ -37,10 +37,13 @@ Dapp [Demo](ottokafka.github.io/myquote)
 
 
 
-
+<br>
+<br>
+<hr>
 
 ## Waykichain Tutorial Outline - Saturday 8th
-  
+  <br>
+  <br>
   
  1: Wallet
   * Install chrome web Wallet (WaykiMax)
