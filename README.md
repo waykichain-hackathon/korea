@@ -42,6 +42,7 @@ Dapp [Demo](ottokafka.github.io/myquote)
 <hr>
 
 # Waykichain Tutorial Outline - Saturday 8th
+Time: 17:30 ~ 19:30
   <br>
   <br>
   
