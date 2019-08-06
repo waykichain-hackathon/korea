@@ -74,3 +74,41 @@ WriteStrkeyValueToDb = function (Strkey,ValueTbl)
     if not mylib.WriteData(writeTbl) then  error("WriteData error") end
 end
 ```
+
+We are using two Contract API's now.
+1. GetContractTxParam - Call blockchain DB
+2. WriteStrkeyValueToDb - Save to blockchain DB
+```lua
+mylib = require "mylib"
+
+GetContractTxParam = function (startIndex, length)
+    assert(startIndex > 0, "GetContractTxParam start error(<=0).")
+    assert(length > 0, "GetContractTxParam length error(<=0).")
+    assert(startIndex+length-1 <= #contract, "GetContractTxParam length ".. length .." exceeds limit: " .. #contract)
+
+    local newTbl = {}
+    local i = 1
+    for i = 1,length do
+      newTbl[i] = contract[startIndex+i-1]
+    end
+    return newTbl
+  end
+  
+WriteStrkeyValueToDb = function (Strkey,ValueTbl)
+    local t = type(ValueTbl)
+    assert(t == "table","the type of Value isn't table.")
+
+    local writeTbl = {
+        key = Strkey,
+        length = #ValueTbl,
+        value = {}
+    }
+    writeTbl.value = ValueTbl
+    if not mylib.WriteData(writeTbl) then  error("WriteData error") end
+end
+
+ Main = function()
+  
+  end
+  Main()
+```
