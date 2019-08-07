@@ -12,6 +12,7 @@ Main = function()
 end
 Main()
 ```
+<br>
 
 Lets add some functionality.
 
@@ -33,6 +34,7 @@ GetContractTxParam = function (startIndex, length)
     return newTbl
   end
 ```
+<br>
 
 So now we have our first function. 
 Should look like this. 
@@ -57,6 +59,7 @@ GetContractTxParam = function (startIndex, length)
   end
   Main()
 ```
+<br>
 
 Next we add a function for adding data to the blockchain DB. [Documentation](https://wiccdev-webui.readthedocs.io/en/latest/Contract/api_debug/)
 ```lua
@@ -74,11 +77,13 @@ WriteStrkeyValueToDb = function (Strkey,ValueTbl)
     if not mylib.WriteData(writeTbl) then  error("WriteData error") end
 end
 ```
+<br>
 
 We are using two Contract API's now.
 1. GetContractTxParam - Call blockchain DB
 2. WriteStrkeyValueToDb - Save to blockchain DB
 ```lua
+
 mylib = require "mylib"
 
 GetContractTxParam = function (startIndex, length)
@@ -112,6 +117,7 @@ end
   end
   Main()
 ```
+<br>
 
 
 Next we need to add the Serialize Contract API function.
@@ -142,9 +148,11 @@ Serialize = function(obj, hex)
     return lua
 end
 ```
+<br>
 
 We also need a function to unpack the tables. This is also part of the contract API.  
 ```lua
+
 Unpack = function (t,i)
     i = i or 1
     if t[i] then
@@ -153,6 +161,7 @@ Unpack = function (t,i)
 end
 
 ```
+<br>
 
 Here is our main function. Lets go through this line by line.
 ```lua
@@ -169,25 +178,31 @@ end
 Main()
 
 ```
+<br>
 
 We created a variable named key_lenTbl (key length table) and declared it to GetContractTxParam(startIndex = 1, length = 4). Basically key is part of a key pair for example. {key_name: value_name}.  
 ```lua
 local key_lenTbl = GetContractTxParam(1, 4)
 ```
+<br>
 
 We created a variable named key_len (key length) and declared to mylib.ByteToInterger() which is part of Waykichains Contract API. The naming is straight forward: Byte to Integer. Then we call the Unpack table function and input key length
 ```lua
 local key_len = mylib.ByteToInteger(Unpack(key_lenTbl))
 ```
+<br>
 
 This is for the key table (keyTbl)
 ```lua
   local keyTbl = GetContractTxParam(4 +1, key_len)
 ```
+<br>
 
 ```lua
 
 ```
+<br>
+
 Now here is the whole contract
 ```lua
 
