@@ -143,11 +143,8 @@ Serialize = function(obj, hex)
 end
 ```
 
-So now we have that.
-Unpacks a table.  
+We also need a function to unpack the tables. This is also part of the contract API.  
 ```lua
-
--- deserialize hex
 Unpack = function (t,i)
     i = i or 1
     if t[i] then
@@ -157,11 +154,9 @@ end
 
 ```
 
-Our Main function should look like this.
-
+Here is our main function. Lets go through this line by line.
 ```lua
 Main = function()
-    -- cant save a string directly to the blockchain it must be converted to hex
     local key_lenTbl = GetContractTxParam(1 ,4)
     local key_len = mylib.ByteToInteger(Unpack(key_lenTbl))
     local keyTbl = GetContractTxParam(4 +1,key_len)
@@ -175,6 +170,24 @@ Main()
 
 ```
 
+We created a variable named key_lenTbl (key length table) and declared it to GetContractTxParam(startIndex = 1, length = 4). Basically key is part of a key pair for example. {key_name: value_name}.  
+```lua
+local key_lenTbl = GetContractTxParam(1, 4)
+```
+
+We created a variable named key_len (key length) and declared to mylib.ByteToInterger() which is part of Waykichains Contract API. The naming is straight forward: Byte to Integer. Then we call the Unpack table function and input key length
+```lua
+local key_len = mylib.ByteToInteger(Unpack(key_lenTbl))
+```
+
+This is for the key table (keyTbl)
+```lua
+  local keyTbl = GetContractTxParam(4 +1, key_len)
+```
+
+```lua
+
+```
 Now here is the whole contract
 ```lua
 
