@@ -213,7 +213,7 @@ We repeat the same exact process for the value.
 <br>
 
 We call our Serialize function and set keyTbl as a parameter. 
-Below that we write to the database with calling our contract API function WriteStrkeyValueToDb then plug in our key and value
+Below that we write to the database by calling our contract API function WriteStrkeyValueToDb then plugging in our key and value
 
 ```lua
 
