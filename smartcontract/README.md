@@ -82,6 +82,7 @@ end
 We are using two Contract API's now.
 1. GetContractTxParam - Call blockchain DB
 2. WriteStrkeyValueToDb - Save to blockchain DB
+
 ```lua
 
 mylib = require "mylib"
@@ -116,7 +117,9 @@ end
   
   end
   Main()
+  
 ```
+
 <br>
 
 
