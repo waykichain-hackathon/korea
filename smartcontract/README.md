@@ -183,7 +183,7 @@ Main()
 ```
 <br>
 
-We created a variable named key_lenTbl (key length table) and declared it to GetContractTxParam(startIndex = 1, length = 4). Basically key is part of a key pair for example. {key_name: value_name}.  
+We created a variable named key_lenTbl (key length table) and declared it to GetContractTxParam(startIndex = 1, length = 4). Basically key is part of a key pair for example. {key_name: value_name} or {firstname: lastname}
 ```lua
 local key_lenTbl = GetContractTxParam(1, 4)
 ```
@@ -201,18 +201,34 @@ This is for the key table (keyTbl)
 ```
 <br>
 
+We repeat the same exact process for the value. 
+
 ```lua
+
+ local value_lenTbl = GetContractTxParam(4 + key_len + 1 ,4)
+ local value_len = mylib.ByteToInteger(Unpack(value_lenTbl))
+ local valueTbl = GetContractTxParam(4+key_len+ 4 + 1,value_len)
 
 ```
 <br>
 
-Now here is the whole contract
+We call our Serialize function and set keyTbl as a parameter. 
+Below that we write to the database with calling our contract API function WriteStrkeyValueToDb then plug in our key and value
+
+```lua
+
+local keyStr = Serialize(keyTbl, false)
+WriteStrkeyValueToDb(keyStr, valueTbl)
+```
+<br>
+
+Now here is the entire contract in full. 
+
 ```lua
 
 mylib = require "mylib"
---must start with mylib = require "mylib". Be sure to put it in the first line. If the first line is left blank, an exception will be reported.
 
---Write date into the blockChain
+--Write data into the blockChain
 WriteStrkeyValueToDb = function (Strkey,ValueTbl)
     local t = type(ValueTbl)
     assert(t == "table","the type of Value isn't table.")
@@ -239,9 +255,6 @@ GetContractTxParam = function (startIndex, length)
     return newTbl
 end
 
----------------------------------------------------
-
---table to String
 Serialize = function(obj, hex)
     local lua = ""
     local t = type(obj)
@@ -265,14 +278,12 @@ Serialize = function(obj, hex)
     return lua
 end
 
--- deserialize hex
 Unpack = function (t,i)
     i = i or 1
     if t[i] then
         return t[i], Unpack(t,i+1)
     end
 end
-
 
 ----Entry function of smart contract
 Main = function()
