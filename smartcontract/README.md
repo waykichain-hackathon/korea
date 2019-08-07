@@ -14,7 +14,7 @@ Main()
 ```
 <br>
 
-Lets add some functionality.
+#### Add Functionality.
 
 We need to add Contract API code from Waykichain Lua library [documentation]( https://wiccdev-webui.readthedocs.io/en/latest/).
 
@@ -61,6 +61,7 @@ GetContractTxParam = function (startIndex, length)
 ```
 <br>
 
+#### Adding data to Blockchain DB
 Next we add a function for adding data to the blockchain DB. [Documentation](https://wiccdev-webui.readthedocs.io/en/latest/Contract/api_debug/)
 ```lua
 
@@ -122,9 +123,9 @@ end
 
 <br>
 
-
-Next we need to add the Serialize Contract API function.
-This will serialize our input data. All data needs to be in the hex format on the front end. That means we need to convert strings to hex when a user inputs something.
+#### Serialize our data
+Next we need to add the Serialize Contract API function. We need to serialize our data before we can be accepted by the blockchain.
+All data needs to be in the hex format on the front end. That means we need to convert strings to hex when a user inputs something.
 ```lua
 
 --table to String
@@ -166,6 +167,7 @@ end
 ```
 <br>
 
+#### Main Function
 Here is our main function. Lets go through this line by line.
 ```lua
 Main = function()
@@ -222,7 +224,7 @@ WriteStrkeyValueToDb(keyStr, valueTbl)
 ```
 <br>
 
-Now here is the entire contract in full. 
+Finally we put it all together.
 
 ```lua
 
@@ -301,3 +303,10 @@ Main()
 
 
 ```
+
+Great Job! if you came this far you learned the basics of writing a smart contract with Lua scripting language.
+
+Now you need to Deploy the contract. This [Tutorial](https://medium.com/@ottokafka/waykichain-dapp-tutorial-bf29bb53dae5) shows you how.
+
+
+If you want to check out all the [Documentation]( https://wiccdev-webui.readthedocs.io/en/latest/).
